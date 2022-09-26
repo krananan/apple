@@ -10,7 +10,6 @@ input.onPinPressed(TouchPin.P0, function () {
         basic.showNumber(3 - index)
         basic.pause(1000)
     }
-    music.playTone(392, music.beat(BeatFraction.Whole))
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     sprite.change(LedSpriteProperty.Y, -1)
@@ -36,7 +35,6 @@ for (let index = 0; index <= 2; index++) {
     basic.showNumber(3 - index)
     basic.pause(1000)
 }
-music.playTone(392, music.beat(BeatFraction.Whole))
 basic.forever(function () {
     if (33 >= timer) {
         timer += 1
