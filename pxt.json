@@ -1,5 +1,6 @@
 {
     "name": "기울여서 사과 먹기",
+    "version": "0.1.0",
     "description": "",
     "dependencies": {
         "core": "*",
