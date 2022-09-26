@@ -1,4 +1,4 @@
-input.onButtonPressed(Button.AB, function () {
+input.onPinPressed(TouchPin.P0, function () {
     sprite.delete()
     apple.delete()
     sprite = game.createSprite(2, 2)
@@ -10,6 +10,19 @@ input.onButtonPressed(Button.AB, function () {
         basic.showNumber(3 - index)
         basic.pause(1000)
     }
+    music.playTone(392, music.beat(BeatFraction.Whole))
+})
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    sprite.change(LedSpriteProperty.Y, -1)
+})
+input.onButtonPressed(Button.A, function () {
+    sprite.change(LedSpriteProperty.X, -1)
+})
+input.onPinPressed(TouchPin.P2, function () {
+    sprite.change(LedSpriteProperty.Y, 1)
+})
+input.onButtonPressed(Button.B, function () {
+    sprite.change(LedSpriteProperty.X, 1)
 })
 let timer = 0
 let apple: game.LedSprite = null
@@ -23,26 +36,13 @@ for (let index = 0; index <= 2; index++) {
     basic.showNumber(3 - index)
     basic.pause(1000)
 }
+music.playTone(392, music.beat(BeatFraction.Whole))
 basic.forever(function () {
     if (33 >= timer) {
         timer += 1
         basic.pause(1000)
     } else {
         game.gameOver()
-    }
-})
-basic.forever(function () {
-    if (-500 > input.acceleration(Dimension.Y)) {
-        sprite.change(LedSpriteProperty.Y, -1)
-    }
-    if (500 < input.acceleration(Dimension.Y)) {
-        sprite.change(LedSpriteProperty.Y, 1)
-    }
-    if (-900 > input.acceleration(Dimension.X)) {
-        sprite.change(LedSpriteProperty.X, -1)
-    }
-    if (900 < input.acceleration(Dimension.X)) {
-        sprite.change(LedSpriteProperty.X, 1)
     }
 })
 basic.forever(function () {
